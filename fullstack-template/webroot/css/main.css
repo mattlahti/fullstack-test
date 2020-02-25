@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+
+html,
+body {
+    margin: 0;
+    font-family: "Nunito", "sans-serif";
+    font-size: 18px;
+    background: linear-gradient(to right, #000000 0%, #434343 50%, #434343 52%, #000000 100%);
+    min-height: 100vh;
+}
+
+.header > h1 {
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+}
+
+.search-wrapper,
+#results-message,
+#results-regions,
+.header > h1 {
+    color: white;
+}
+
+.search-wrapper {
+    margin: 0 auto;
+    display: table;
+}
+
+.search-wrapper #search-input,
+.search-wrapper #search-button {
+    padding: 1em;
+}
+
+.search-wrapper label {
+    font-size: 75%;
+}
+
+.search-wrapper label:hover,
+#search-button:hover,
+.search-wrapper input[type="radio"] {
+    cursor: pointer;
+}
+
+.red-border {
+    border: 1px solid red;
+}
+
+#search-button {
+    background-color: rgb(103, 103, 103);
+    font-family: "Nunito", "sans-serif";
+    color: white;
+    border: 1px solid rgb(103, 103, 103);
+}
+
+.results-wrapper {
+    width: 85%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .results-wrapper {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+#results-body {
+    list-style-type: none;
+    margin-top: 15px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: stretch;
+}
+
+#results-body > li {
+    background: rgb(220, 220, 220);
+    padding: 1em;
+    margin: 1em;
+    width: 325px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#results-body > li:hover {
+    transition-duration: 0.1s;
+    transform: scale(1.1);
+}
+
+
+#results-body > li > p {
+    margin: 0;
+}
+  
+#results-body > li > .name {
+    font-weight: bold;
+    font-size: 1.7rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+#results-body > li > .region {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: .9rem;
+}
+
+#results-body > li > .flag-wrapper {
+    width: 75%;
+    margin: 1em auto;
+    position: relative;
+    flex-grow: 1;
+}
+
+/* I center these flag SVGs horizontally, but also vertically because the aspect ratios of each flag varies, from 1:1 (Switzerland) to 11:28 (Qatar)
+   See: https://en.wikipedia.org/wiki/List_of_aspect_ratios_of_national_flags
+ */
+#results-body > li > .flag-wrapper > .flag {
+    width: 95%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#results-message {
+    text-align: center;
+}
+
+.region-header {
+    text-align: center;
+    margin: 0;
+}
+
+#results-regions > .region-column > .region-column-header {
+    font-weight: bold;
+    font-size: 150%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: stretch;
+}
+
+#results-regions > .region-column {
+    padding: 1em;
+    margin: 1em;
+    width: 190px;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.loading-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: loading-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loading-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+@keyframes loading-ripple {
+    0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+    }
+}
